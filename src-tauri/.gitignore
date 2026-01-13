@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+dist/
+
+# Rust/Tauri build artifacts
+src-tauri/target/
+src-tauri/binaries/
+
+# Database (Không nên đẩy file DB cá nhân lên)
+*.db
+*.db-journal
+
+# IDE logs
+.vscode/
+.DS_Store
