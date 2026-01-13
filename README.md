@@ -38,8 +38,8 @@ Hệ thống sử dụng cơ chế phân quyền (Role-based Access Control):
 
 | Chức vụ | Tài khoản (Username) | Mật khẩu (Password) | Quyền hạn |
 | :--- | :--- | :--- | :--- |
-| **Quản trị viên** | `admin` | `123456` | Toàn quyền: Xem báo cáo, quản lý nhân sự, cấu hình hệ thống. |
-| **Nhân viên** | `staff1` | `123` | Quyền cơ bản: Quản lý sản phẩm, nhập kho, bán hàng. |
+| **Quản trị viên** | `admin` | `admin123` | Toàn quyền: Xem báo cáo, quản lý nhân sự, cấu hình hệ thống. |
+
 
 ---
 
