@@ -1,18 +1,77 @@
-# React + Vite
+# 📦 PHẦN MỀM QUẢN LÝ KHO HÀNG & BÁN HÀNG (TAURI DESKTOP APP)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng quản lý cửa hàng tiện lợi chạy trên nền tảng Desktop (Windows), được xây dựng bằng công nghệ **Tauri**, **ReactJS** và **SQLite**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 1. HƯỚNG DẪN CÀI ĐẶT (CHO NGƯỜI PHÁT TRIỂN)
 
-## React Compiler
+Để chạy ứng dụng từ mã nguồn (Clone về máy), bạn cần cài đặt các môi trường sau:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* **Node.js**: Phiên bản 18.0 trở lên.
+* **Rust & Cargo**: Cài đặt tại [rustup.rs](https://rustup.rs/).
+* **Build Tools**: Cài đặt "Desktop development with C++" thông qua Visual Studio Installer.
 
-Note: This will impact Vite dev & build performances.
+### Các bước thực hiện:
 
-## Expanding the ESLint configuration
+1.  **Clone dự án về máy:**
+    ```bash
+    git clone [https://github.com/nguyendole1092004/desktop-app.git](https://github.com/nguyendole1092004/desktop-app.git)
+    cd desktop-app
+    ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2.  **Cài đặt các thư viện Node.js:**
+    ```bash
+    npm install
+    ```
+
+3.  **Khởi chạy ứng dụng ở chế độ Dev:**
+    ```bash
+    npm run tauri dev
+    ```
+
+---
+
+## 🔐 2. THÔNG TIN ĐĂNG NHẬP HỆ THỐNG
+
+Hệ thống sử dụng cơ chế phân quyền (Role-based Access Control):
+
+| Chức vụ | Tài khoản (Username) | Mật khẩu (Password) | Quyền hạn |
+| :--- | :--- | :--- | :--- |
+| **Quản trị viên** | `admin` | `123456` | Toàn quyền: Xem báo cáo, quản lý nhân sự, cấu hình hệ thống. |
+| **Nhân viên** | `staff1` | `123` | Quyền cơ bản: Quản lý sản phẩm, nhập kho, bán hàng. |
+
+---
+
+## ✨ 3. CÁC TÍNH NĂNG NỔI BẬT
+
+* ✅ **Quản lý danh mục**: Sản phẩm (kèm hình ảnh), Nhà cung cấp, Khách hàng.
+* ✅ **Nghiệp vụ kho**: Nhập hàng vào kho, theo dõi số lượng tồn thực tế.
+* ✅ **Lịch sử biến động**: Ghi lại chi tiết mọi giao dịch nhập/xuất kho theo thời gian.
+* ✅ **Báo cáo & Thống kê**: 
+    * Tính tổng vốn tồn kho, lợi nhuận dự kiến.
+    * Cảnh báo sản phẩm sắp hết hàng (dưới ngưỡng an toàn).
+    * **Lọc dữ liệu** theo khoảng thời gian tùy chọn.
+* ✅ **Xuất dữ liệu Excel**: Trích xuất báo cáo ra file `.xlsx` chuyên nghiệp.
+* ✅ **Hệ thống**: Sao lưu (Backup) và Khôi phục (Restore) cơ sở dữ liệu SQLite.
+
+---
+
+## 🛠 4. CÔNG NGHỆ SỬ DỤNG (TECH STACK)
+
+* **Frontend**: ReactJS, Vite, CSS-in-JS.
+* **Backend**: Rust (Tauri Framework) - Giúp ứng dụng nhẹ và bảo mật.
+* **Database**: SQLite - Lưu trữ dữ liệu cục bộ, hoạt động offline 100%.
+* **Library**: `xlsx` (Xử lý Excel), `tauri-plugin-sql` (Giao tiếp DB).
+
+---
+
+## 📂 5. CẤU TRÚC THƯ MỤC CHÍNH
+
+* `/src`: Mã nguồn giao diện người dùng (React components).
+* `/src-tauri`: Mã nguồn logic Backend (Rust) và cấu hình ứng dụng.
+* `/src-tauri/shopping.db`: Tệp tin cơ sở dữ liệu của hệ thống.
+
+---
+**Thực hiện bởi:** Nguyễn Đỗ Lê  
+**Ngày hoàn thành:** 13/01/2026
